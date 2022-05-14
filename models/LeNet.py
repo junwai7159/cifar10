@@ -18,4 +18,4 @@ class LeNet(nn.Module):
         x = self.fc3(x)
         return x
       
-model = LeNet.to(device)
+model = LeNet().to(device)
