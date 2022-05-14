@@ -5,4 +5,11 @@ The CIFAR-10 dataset (Canadian Institute For Advanced Research) is a collection 
 
 ## Usage
 
-##
+## Results
+Models | Accuracy 
+:---:|:---:
+[LeNet](https://github.com/IvoryCandy/pytorch-cifar10/blob/master/models/LeNet.py) | ----
+[Alexnet](https://github.com/IvoryCandy/pytorch-cifar10/blob/master/models/AlexNet.py) | ----
+[VGG11](https://github.com/IvoryCandy/pytorch-cifar10/blob/master/models/VGG.py) | ---- 
+[GoogleNet](https://github.com/IvoryCandy/pytorch-cifar10/blob/master/models/GoogleNet.py) | ----
+
