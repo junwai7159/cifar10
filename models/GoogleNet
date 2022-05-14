@@ -1,52 +1,3 @@
-class Inception(nn.Module):
-    def __init__(self, in_planes, kernel_1_x, kernel_3_in, kernel_3_x, kernel_5_in, kernel_5_x, pool_planes):
-        super(Inception, self).__init__()
-        # 1x1 conv branch
-        self.b1 = nn.Sequential(
-            nn.Conv2d(in_planes, kernel_1_x, kernel_size=1),
-            nn.BatchNorm2d(kernel_1_x),
-            nn.ReLU(True),
-        )
-
-        # 1x1 conv -> 3x3 conv branch
-        self.b2 = nn.Sequential(
-            nn.Conv2d(in_planes, kernel_3_in, kernel_size=1),
-            nn.BatchNorm2d(kernel_3_in),
-            nn.ReLU(True),
-            nn.Conv2d(kernel_3_in, kernel_3_x, kernel_size=3, padding=1),
-            nn.BatchNorm2d(kernel_3_x),
-            nn.ReLU(True),
-        )
-
-        # 1x1 conv -> 5x5 conv branch
-        self.b3 = nn.Sequential(
-            nn.Conv2d(in_planes, kernel_5_in, kernel_size=1),
-            nn.BatchNorm2d(kernel_5_in),
-            nn.ReLU(True),
-            nn.Conv2d(kernel_5_in, kernel_5_x, kernel_size=3, padding=1),
-            nn.BatchNorm2d(kernel_5_x),
-            nn.ReLU(True),
-            nn.Conv2d(kernel_5_x, kernel_5_x, kernel_size=3, padding=1),
-            nn.BatchNorm2d(kernel_5_x),
-            nn.ReLU(True),
-        )
-
-        # 3x3 pool -> 1x1 conv branch
-        self.b4 = nn.Sequential(
-            nn.MaxPool2d(3, stride=1, padding=1),
-            nn.Conv2d(in_planes, pool_planes, kernel_size=1),
-            nn.BatchNorm2d(pool_planes),
-            nn.ReLU(True),
-        )
-
-    def forward(self, x):
-        y1 = self.b1(x)
-        y2 = self.b2(x)
-        y3 = self.b3(x)
-        y4 = self.b4(x)
-        return torch.cat([y1,y2,y3,y4], 1)
-
-
 class GoogLeNet(nn.Module):
     def __init__(self):
         super(GoogLeNet, self).__init__()
@@ -90,5 +41,5 @@ class GoogLeNet(nn.Module):
         x = x.view(x.size(0), -1)
         x = self.linear(x)
         return x
-        
-model = Inception().to(device)
+
+model = GoogLeNet().to(device)
