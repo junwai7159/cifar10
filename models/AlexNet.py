@@ -32,4 +32,4 @@ class AlexNet(nn.Module):
         x = self.classifier(x)
         return x
 
-model = AlexNet().to(device)
+network = AlexNet().to(device)
