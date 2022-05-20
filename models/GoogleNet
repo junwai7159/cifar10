@@ -90,4 +90,4 @@ class GoogLeNet(nn.Module):
         x = self.linear(x)
         return x
 
-model = GoogLeNet().to(device)
+network = GoogLeNet().to(device)
