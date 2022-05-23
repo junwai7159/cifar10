@@ -6,9 +6,9 @@ cfg = {
 }
 
 
-class VGG(nn.Module):
+class VGGNet(nn.Module):
     def __init__(self, vgg_name):
-        super(VGG, self).__init__()
+        super(VGGNet, self).__init__()
         self.features = self._make_layers(cfg['VGG11'])
         self.classifier = nn.Linear(512, 10)
 
