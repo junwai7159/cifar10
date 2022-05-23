@@ -23,7 +23,7 @@ Details about the CIFAR-10 dataset could be found at: https://www.cs.toronto.edu
 - Tuning hyperparameters
 - Using a more sophisticated CNN such as GoogLeNet
 
-#### The optimized hyperparamters we used:
+#### The optimized hyperparameters we used:
 - **Learning rate:** 0.001
 - **Batch size:** 4
 - **Epochs:** 10
